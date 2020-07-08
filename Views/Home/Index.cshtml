@@ -1,0 +1,16 @@
+﻿@model IEnumerable<WebApplication2.Models.APICall.ApiRoot>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4"> API Call</h1>
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li>@item.name</li>
+
+        }
+    </ul>
+</div>
