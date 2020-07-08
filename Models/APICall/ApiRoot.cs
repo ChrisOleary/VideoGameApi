@@ -1,7 +1,5 @@
-﻿using System;
+﻿using GamingApi.Models.APICall;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace WebApplication2.Models.APICall
 {
@@ -11,6 +9,7 @@ namespace WebApplication2.Models.APICall
         public int id { get; set; }
         public List<int> age_ratings { get; set; }
         public int category { get; set; }
+        public Cover cover { get; set; }
         public int created_at { get; set; }
         public List<int> external_games { get; set; }
         public string name { get; set; }
