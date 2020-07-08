@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace GamingApi.Models.APICall
+﻿namespace GamingApi.Models.APICall
 {
     public class Cover
     {

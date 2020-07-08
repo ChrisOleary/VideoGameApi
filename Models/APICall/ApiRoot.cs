@@ -3,7 +3,6 @@ using System.Collections.Generic;
 
 namespace WebApplication2.Models.APICall
 {
-    // ApiRoot myDeserializedClass = JsonConvert.DeserializeObject<ApiRoot>(myJsonResponse); 
     public class ApiRoot
     {
         public int id { get; set; }
@@ -16,6 +15,7 @@ namespace WebApplication2.Models.APICall
         public double popularity { get; set; }
         public double rating { get; set; }
         public int rating_count { get; set; }
+        public List<ReleaseDate> release_dates { get; set; }
         public List<int> similar_games { get; set; }
         public string slug { get; set; }
         public string summary { get; set; }

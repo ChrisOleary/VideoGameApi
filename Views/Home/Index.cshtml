@@ -30,7 +30,13 @@
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.url)
-                    </td>                  
+                    </td> 
+                    <td>
+                        @foreach (var rd in item.release_dates)
+                        {
+                            @Html.DisplayFor(modelItem => rd.human)
+                        }
+                    </td>
                     <td>
                         <img src="https://images.igdb.com/igdb/image/upload/t_cover_med/@Html.DisplayFor(modelItem => item.cover.image_id)@Html.DisplayFor(modelItem => item.cover.imgPrefix)"/>
                     </td>                    
