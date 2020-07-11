@@ -1,6 +1,9 @@
-﻿using Newtonsoft.Json;
+﻿using GamingApi.Models.APICall;
+using Newtonsoft.Json;
 using RestSharp;
 using System.Collections.Generic;
+using System.Linq;
+using WebApplication2.Models.APICall;
 
 namespace WebApplication2.Services
 {
@@ -18,12 +21,26 @@ namespace WebApplication2.Services
             request.AddParameter("text/plain", "fields *, release_dates.*, screenshots.*, cover.*; \r\nwhere release_dates.platform = (49) & release_dates.date > 1594204300;\r\nsort release_dates.date desc;", ParameterType.RequestBody); 
             IRestResponse response = client.Execute(request);
 
-            // needs to be list<> so square brackets are removed from json
+            // needs to be list<> so we can use ienumerable in the view to itarate over
             var myDeserializedClass = JsonConvert.DeserializeObject<List<ApiRoot>>(response.Content);
 
-            return myDeserializedClass;
+                
+                return myDeserializedClass;
+        }
 
+        public string QueryIntArray()
+        {
+            var nums = new List<ApiRoot>();
+            var rums = new List<ReleaseDate>();
+
+            var gt20 = from num in nums
+                       join rum in rums on num.id equals rum.game
+                       where rum.platform == 49
+                       select rum.human;
+
+            return gt20.ToString();
 
         }
+
     }
 }

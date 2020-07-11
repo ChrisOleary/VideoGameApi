@@ -1,5 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
+using GamingApi.Models.APICall;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using WebApplication2.Models;
@@ -15,8 +18,9 @@ namespace WebApplication2.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly FirstClass _secondClass;
         private readonly IApiService _apiService;
-       
-        
+
+
+        ReleaseDate rd = new ReleaseDate();
 
         public HomeController(ILogger<HomeController> logger, IApiService apiService)
         {
@@ -28,9 +32,14 @@ namespace WebApplication2.Controllers
         public IActionResult Index()
         {
             var response = _apiService.GetGames<ApiRoot>();
+
+        
+
             return View(response);
         }
 
+       
+        
 
         public IActionResult FirstView()
         {
