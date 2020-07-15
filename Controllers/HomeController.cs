@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using GamingApi.Models.APICall;
+using GamingApi.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using WebApplication2.Models;
@@ -32,10 +33,10 @@ namespace WebApplication2.Controllers
         public IActionResult Index()
         {
             var response = _apiService.GetGames<ApiRoot>();
-
-        
-
-            return View(response);
+            return View(new APIViewModel
+            {
+                apiRoot = response
+            });
         }
 
        
@@ -43,16 +44,15 @@ namespace WebApplication2.Controllers
 
         public IActionResult FirstView()
         {
-            var myModel = new List<FirstClass>();
-            myModel.Add(new FirstClass { Name = "Dave", Id = 1 });
-            myModel.Add(new FirstClass { Name = "Chris", Id = 2 });
-            return View(myModel);
+            var response = _apiService.GetGames<ApiRoot>();
+
+            return View(new APIViewModel
+            {
+                apiRoot = response
+            }
+            );
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

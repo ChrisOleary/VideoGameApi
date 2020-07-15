@@ -1,19 +1,45 @@
-﻿@model IEnumerable<WebApplication2.Models.CSharp.FirstClass>;
+﻿@model GamingApi.ViewModels.APIViewModel
 @{
     ViewData["Title"] = "FirstView";
 }
 
-<h1>FirstView</h1>
+<div class="text-center">
+    <h4 class="display-4"> Coming soon on Xbox</h4>
 
-<table>
-    <tr>
-        
-            @foreach (var item in Model)
+    <table class="table table-striped table-hover table-dark" id="myTable">
+        <thead>
+            <tr>
+                <th>
+                    Game
+                </th>
+                <th>
+                    Release Date
+                </th>
+                <th>
+                    Cover URL
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.apiRoot)
             {
-               <td>@item.Name</td>
-                
+                <tr>
+                    <td>
+                        <a style="color:white; font-weight:bold;" target="_blank" href="@Html.DisplayFor(modelItem => item.url)">@Html.DisplayFor(modelItem => item.name) </a>
+                    </td>
+                    <td>
+
+                        @foreach (var i in item.release_dates)
+                        {
+                            @Html.DisplayFor(modelItem => i.human)<br>
+                        }
+
+                    </td>
+                    <td>
+                        <img src="https://images.igdb.com/igdb/image/upload/t_cover_med/@Html.DisplayFor(modelItem => item.cover.image_id)@Html.DisplayFor(modelItem => item.cover.imgPrefix)" />
+                    </td>
+                </tr>
             }
-    
-    </tr>
-</table>
-      
+        </tbody>
+    </table>
+</div>

@@ -1,17 +1,13 @@
-﻿@model IEnumerable<WebApplication2.Models.APICall.ApiRoot>
+﻿@model GamingApi.ViewModels.APIViewModel
 
 @{
     ViewData["Title"] = "Home Page";
-
-    
-
 }
-
-    <style>
-        td {
-            vertical-align: middle!important;
-        }
-    </style>
+<style>
+    td {
+        vertical-align: middle !important;
+    }
+</style>
 
 <div class="text-center">
     <h4 class="display-4"> Coming soon on Xbox</h4>
@@ -20,16 +16,10 @@
         <thead>
             <tr>
                 <th>
-                    Game
+                    Title
                 </th>
                 <th>
                     Release Date
-                </th>
-                <th>
-                    All the release Dates
-                </th>
-                <th>
-                    All the Epochs
                 </th>
                 <th>
                     Cover URL
@@ -37,38 +27,25 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model)
+            @foreach (var item in Model.apiRoot)
             {
-            <tr>
-                <td>
-                    <a style="color:white; font-weight:bold;" target="_blank" href="@Html.DisplayFor(modelItem => item.url)">@Html.DisplayFor(modelItem => item.name) </a>
-                </td>
-                <td>
-    
-                   
-                </td>
-                <td>
-                    <ul>
+                <tr>
+                    <td>
+                        <a style="color:white; font-weight:bold;" target="_blank" href="@Html.DisplayFor(modelItem => item.url)">@Html.DisplayFor(modelItem => item.name) </a>
+                    </td>
+                    <td>
+
                         @foreach (var i in item.release_dates)
                         {
-                            <li>@Html.DisplayFor(modelItem => i.human)</li>
+                            @Html.DisplayFor(modelItem => i.human)<br>
                         }
-                    </ul>
-                </td>
-                <td>
-                    <ul>
-                        @foreach (var i in item.release_dates)
-                        {
-                            <li>@Html.DisplayFor(modelItem => i.date)</li>
-                        }
-                    </ul>
-                </td>
-                <td>
-                    <img src="https://images.igdb.com/igdb/image/upload/t_cover_med/@Html.DisplayFor(modelItem => item.cover.image_id)@Html.DisplayFor(modelItem => item.cover.imgPrefix)" />
-                </td>
-            </tr>
+
+                    </td>
+                    <td>
+                        <img src="https://images.igdb.com/igdb/image/upload/t_cover_med/@Html.DisplayFor(modelItem => item.cover.image_id)@Html.DisplayFor(modelItem => item.cover.imgPrefix)" />
+                    </td>
+                </tr>
             }
         </tbody>
     </table>
-
 </div>

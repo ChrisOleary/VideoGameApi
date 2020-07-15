@@ -2,3 +2,5 @@
 - order by newest date asc
 - click row to see further details
 - xbox icon from fontawesome
+- mock api calls
+- unit testing
