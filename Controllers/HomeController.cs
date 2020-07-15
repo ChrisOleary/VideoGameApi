@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Threading.Tasks;
 using GamingApi.Models.APICall;
 using GamingApi.ViewModels;
 using Microsoft.AspNetCore.Mvc;
@@ -16,8 +17,8 @@ namespace WebApplication2.Controllers
 
     public class HomeController : Controller
     {
+        // dependancy injection
         private readonly ILogger<HomeController> _logger;
-        private readonly FirstClass _secondClass;
         private readonly IApiService _apiService;
 
 
@@ -53,6 +54,11 @@ namespace WebApplication2.Controllers
             );
         }
 
+        // for devwebs tutorial
+        private async Task<IApiService> Getsomething()
+        {
+            return await Task.FromResult(_apiService);
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
