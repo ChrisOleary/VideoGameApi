@@ -34,6 +34,10 @@ namespace WebApplication2.Controllers
         public IActionResult Index()
         {
             var response = _apiService.GetGames<ApiRoot>();
+            
+
+            
+
             return View(new APIViewModel
             {
                 apiRoot = response

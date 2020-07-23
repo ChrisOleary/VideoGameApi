@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30225.117
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GamingApi", "GamingApi.csproj", "{ECEEF2E7-9D17-4BFF-9687-0F15CA53438B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevWebsCourseProjectApp", "..\DevWebsCourseProjectApp\DevWebsCourseProjectApp.csproj", "{DD06536C-C672-46AE-A0E0-CBD322A3F6EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevWebsCourseProjectApp", "..\DevWebsCourseProjectApp\DevWebsCourseProjectApp.csproj", "{DD06536C-C672-46AE-A0E0-CBD322A3F6EF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -4,7 +4,7 @@
 }
 
 <div class="text-center">
-    <h4 class="display-4"> Coming soon on Xbox</h4>
+    <h4 class="display-4"> Coming soon on <i class="fab fa-xbox"></i> </h4>
 
     <table class="table table-striped table-hover table-dark" id="myTable">
         <thead>
@@ -21,7 +21,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model.apiRoot)
+            @foreach (var item in Model.apiRoot.OrderByDescending(m => m.name).ThenBy(m => m.total_rating))
             {
                 <tr>
                     <td>
